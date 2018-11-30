@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=112233
+    ports:
+      - 33060:3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
