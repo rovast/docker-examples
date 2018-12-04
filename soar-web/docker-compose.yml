@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  soar-web:
+    image: rovast/soar-web
+    restart: always
+    external_links:
+      - docker-phpmyadmin_mysql_1_50bcea533b80:mysql
+    networks:
+      - docker-phpmyadmin_default
+    ports:
+      - 5077:5077
+    volumes:
+      - /home/rovast/Github/soar-web:/opt/soar-web
+
+networks:
+  docker-phpmyadmin_default:
+    external: true
