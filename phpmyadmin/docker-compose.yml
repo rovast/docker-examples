@@ -20,3 +20,9 @@ services:
       - 33060:3306
     volumes:
       - ./mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - 63790:6379
