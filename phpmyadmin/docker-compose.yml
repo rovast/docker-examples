@@ -17,7 +17,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=112233
     ports:
-      - 33060:3306
+        - 33060:3306
     volumes:
       - ./mysql_data:/var/lib/mysql
 
