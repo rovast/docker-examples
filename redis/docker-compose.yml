@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  redis1:
+    image: redis:latest
+    restart: always
+    ports:
+      - 63791:6379
+
+  redis2:
+    image: redis:latest
+    restart: always
+    ports:
+      - 63792:6379
+
+  redis3:
+    image: redis:latest
+    restart: always
+    ports:
+      - 63793:6379
