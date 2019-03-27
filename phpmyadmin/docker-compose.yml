@@ -20,6 +20,7 @@ services:
         - 33060:3306
     volumes:
       - ./mysql_data:/var/lib/mysql
+      - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
 
   redis:
     image: redis:latest
