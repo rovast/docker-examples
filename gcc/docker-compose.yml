@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  gcc:
+    image: rovast/gcc:8
+    container_name: my-gcc
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - /home/rovast/Code:/home/Code
+      - ./README.md:/home/README.md
+    command: tail -f /home/README.md
