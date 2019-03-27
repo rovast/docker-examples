@@ -4,14 +4,22 @@ Dockerfile and docker-compose examples
 
 记录常用的 docker 应用及相关配置
 
-## Install docker
+## Projects
 
-Linux: `curl -sSL https://get.daocloud.io/docker | sh`
+- gcc 安装 gcc 和 gdb，便于跨平台开发 C
 
-Mac: [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
+## Install 
 
-## Install docker-compose
+**docker**
+
+- Linux: `curl -sSL https://get.daocloud.io/docker | sh`
+- Mac: [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
+
+**docker-compose**
 
 Linux:
-- step1 `sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
-- step2 sudo chmod +x /usr/local/bin/docker-compose
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
