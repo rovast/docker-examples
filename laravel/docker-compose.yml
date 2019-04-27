@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx:1.14.1
+    volumes:
+      - /Volumes/work/Code/laravel:/var/www/html
+      - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./logs/nginx:/var/log/nginx
+    ports:
+      - 8001:80
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    image: php:7.1.24-fpm
+    volumes:
+      - /Volumes/work/Code/laravel:/var/www/html
+    depends_on:
+      - mysql
+      - redis
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=112233
+    ports:
+      - 33061:3306
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./config/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+
+  redis:
+    image: redis:latest
+    volumes:
+      - ./data/redis:/data
+
