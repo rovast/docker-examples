@@ -2,9 +2,12 @@ version: '2'
 
 services:
   gdb-php-src:
-    image: rovast/gdb-php-src:7.0.0
+    image: rovast/gdb-php-src:7.2.27
     container_name: gdb-php-src
     security_opt:
       - seccomp:unconfined
     cap_add:
       - SYS_PTRACE
+    volumes: 
+      - ./scripts:/home/scripts
+    
