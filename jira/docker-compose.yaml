@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  jira:
+    image: atlassian/jira-software
+    volumes:
+      - ./jira_data:/var/atlassian/application-data/jira
+    ports:
+      - 8883:8080
+    networks:
+      - mysql_default
+
+networks:
+  mysql_default:
+    external: true

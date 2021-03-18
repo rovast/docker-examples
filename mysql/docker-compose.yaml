@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  mysql8:
+    image: mysql:8
+    environment:
+      -  MYSQL_ROOT_PASSWORD=112233
+    volumes:
+      - ./mysql8_data:/var/lib/mysql
+
+  mysql57:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=112233
+    volumes:
+      - ./mysql57_data:/var/lib/mysql
+      - ./mysqld57.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+
+# 默认网络 mysql_default

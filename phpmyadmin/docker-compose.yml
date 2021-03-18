@@ -1,29 +1,21 @@
-version: '2'
+version: '3'
 
 services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
-    restart: always
     ports:
-      - 8080:80
+      - 9995:80
+    networks:
+      - mysql_default
     volumes:
       - /sessions
 
-  mysql:
-    image: mysql:5.7
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=112233
-    ports:
-        - 33060:3306
-    volumes:
-      - ./mysql_data:/var/lib/mysql
-      - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+networks:
+  mysql_default:
+    external: true
 
-  redis:
-    image: redis:latest
-    restart: always
-    ports:
-      - 63790:6379
+# 使用
+# HOST: mysql8:3306 或者 mysql58:3306
+# 认证: root/112233      root/112233
