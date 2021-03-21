@@ -44,7 +44,6 @@ services:
 
   mysql57:
     image: mysql:5.7
-    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=112233
 # 默认网络 mysql_default

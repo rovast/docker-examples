@@ -10,7 +10,7 @@ services:
     networks:
       - mysql_default
     volumes:
-      - /sessions
+      - ./phpmyadmin_data:/sessions
 
 networks:
   mysql_default:
