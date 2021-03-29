@@ -5,8 +5,10 @@ services:
     image: mysql:8
     environment:
       -  MYSQL_ROOT_PASSWORD=112233
+    ports: 
+      - "3306:3306"
     volumes:
-      - ./mysql8_data:/var/lib/mysql
+      - "./mysql8_data:/var/lib/mysql"
 
   mysql57:
     image: mysql:5.7

@@ -1,15 +1,42 @@
 version: '2'
 
+networks:
+  jira-net:
+    driver: bridge
+
+volumes:
+    jira_data: {}
+    postgres_data: {}
+
 services:
   jira:
     image: atlassian/jira-software
+    container_name: jira
     volumes:
-      - ./jira_data:/var/atlassian/application-data/jira
+      - jira_data:/var/atlassian/application-data/jira
     ports:
       - 8883:8080
+    restart: unless-stopped
     networks:
-      - mysql_default
+      - jira-net
 
-networks:
-  mysql_default:
-    external: true
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=112233
+      - PGDATA=/var/lib/postgresql/data/pgdata 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - jira-net
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports: 
+     - 21002:8080
+    restart: unless-stopped
+    networks:
+      - jira-net
