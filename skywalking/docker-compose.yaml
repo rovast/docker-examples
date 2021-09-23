@@ -1,0 +1,19 @@
+version: '3'
+services:
+  oap:
+    container_name: oap
+    image: apache/skywalking-oap-server:8.1.0-es7
+    restart: unless-stopped
+    ports:
+      # agent 上报地址 grpc
+      - 31800:11800
+      - 11800:11800
+  ui:
+    image: apache/skywalking-ui
+    restart: unless-stopped
+    environment:
+      - SW_OAP_ADDRESS=oap:12800
+    ports:
+      - 30326:8080
+    depends_on: 
+      - oap

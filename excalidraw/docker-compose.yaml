@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  excalidraw:
+    image: excalidraw/excalidraw
+    container_name: excalidraw
+    ports:
+        - 21014:80
