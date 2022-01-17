@@ -4,10 +4,6 @@ Dockerfile and docker-compose examples
 
 记录常用的 docker 应用及相关配置
 
-## Projects
-
-- gcc 安装 gcc 和 gdb，便于跨平台开发 C
-
 ## Install 
 
 **docker**
@@ -24,7 +20,31 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## Networks
+## Examples
+
+| Name | Description |
+| ---- | ----------- |
+|elastic| |
+|gcc| |
+|grafana| |
+|laravel| |
+|mysql| |
+|php-fpm| |
+|portainer | docker 的 web 版管理工具 |
+|redis| |
+|soar-web| MySQL 语句规范检查工具 |
+|excalidraw| 手绘风格的在线绘图工具 |
+|gdb-php-src | 安装 gcc、gdb 工具，方便跨平台调试 PHP 内核源码 |
+|jira| |
+|mongodb| |
+|opengrok | 在线阅读源码的分析神器，很适合阅读 C 相关代码，自动构建索引 |
+|phpmyadmin | |
+|rabbitmq | |
+|skywalking |APM解决方案|
+
+## QA
+
+### Networks
 
 创建的 Networks 名称 `文件夹_default`，比如：MySQL 对应的网络组 `mysql_default`，这样其他地方访问直接配置对应的网络名，通过 service_name 访问即可
 
