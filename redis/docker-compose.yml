@@ -1,14 +1,9 @@
 version: '3'
 
 services:
-  redis1:
+  redis:
+    container_name: redis-srv
     image: redis:latest
-    restart: always
-
-  redis2:
-    image: redis:latest
-    restart: always
-
-  redis3:
-    image: redis:latest
-    restart: always
+      #    restart: always
+    ports:
+      - 6379:6379
