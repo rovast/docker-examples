@@ -9,3 +9,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./portainer_data:/data
+
+# with nginx proxy manager(npm), delete it when you do not use nginx proxy manager
+networks:
+  default:
+    external:
+      name: npm
