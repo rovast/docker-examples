@@ -3,6 +3,7 @@ version: '2'
 services:
   portainer:
     image: portainer/portainer-ce
+    privileged: true
     restart: always
     ports:
       - 127.0.0.1:9994:9000
@@ -13,5 +14,5 @@ services:
 # with nginx proxy manager(npm), delete it when you do not use nginx proxy manager
 networks:
   default:
-    external:
-      name: npm
+    external: true
+    name: npm
