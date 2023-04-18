@@ -9,7 +9,7 @@ services:
       - 31800:11800
       - 11800:11800
   ui:
-    image: apache/skywalking-ui
+    image: apache/skywalking-ui:8.1.0
     restart: unless-stopped
     environment:
       - SW_OAP_ADDRESS=oap:12800
