@@ -1,0 +1,22 @@
+version: "2.1"
+services:
+  yapi:
+    image: mrjin/yapi:latest
+    environment:
+      - VERSION=1.10.2
+      - HOME=/home
+      - PORT=3000
+      - ADMIN_EMAIL=rovast@163.com
+      - DB_SERVER=yapi-mongo
+      - DB_NAME=yapi
+      - DB_PORT=27017
+    ports:
+      - 3000:3000
+    volumes:
+      - ./data/log:/home/log
+    depends_on:
+      - yapi-mongo
+  yapi-mongo:
+    image: mongo
+    volumes:
+      - ./data/mongodb:/data/db

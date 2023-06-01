@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  tensorflow:
+    image: "tensorflow/tensorflow:latest-jupyter"
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/tf
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=
