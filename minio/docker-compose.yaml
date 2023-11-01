@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  minIO:
+    container_name: minio
+    image: quay.io/minio/minio
+    environment:
+      - MINIO_ROOT_USER=rovast
+      - MINIO_ROOT_PASSWORD=rovast123123
+    ports:
+      - 19000:9000
+      - 19090:9090
+    volumes:
+      - ./data:/data
+    command: server /data --console-address ":9090"
